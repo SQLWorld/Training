@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Sunshine AI Academy</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="about.html">About</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <header>
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you</p>
+    </header>
+
+    <main>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; align-items: start;">
+            <!-- Contact Info -->
+            <div>
+                <h2>Contact Information</h2>
+                <div class="card" style="margin-bottom: 24px;">
+                    <h3>📍 Headquarters</h3>
+                    <p>Sunshine AI Academy<br>
+                        123 Innovation Way, Suite 404<br>
+                        Washington, DC 20001</p>
+                </div>
+
+                <div class="card" style="margin-bottom: 24px;">
+                    <h3>📧 Email & Phone</h3>
+                    <p><strong>Admissions:</strong> admissions@sunshineai.academy</p>
+                    <p><strong>Support:</strong> help@sunshineai.academy</p>
+                    <p><strong>Phone:</strong> +1 (202) 555-0123</p>
+                    <p style="color: var(--muted); font-size: 0.9em;">Mon-Fri, 9am - 5pm EST</p>
+                </div>
+
+                <div class="card">
+                    <h3>🚆 Getting Here</h3>
+                    <p>We are located 2 blocks from the Metro Center station (Red, Orange, Silver, Blue lines).</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div>
+                <h2>Send us a Message</h2>
+                <form action="#"
+                    style="background: var(--glass); padding: 30px; border-radius: 20px; border: 1px solid var(--border);">
+                    <label style="display:block; margin-bottom:8px;">Full Name</label>
+                    <input type="text" placeholder="Jane Doe" />
+
+                    <label style="display:block; margin-bottom:8px;">Email Address</label>
+                    <input type="email" placeholder="jane@example.com" />
+
+                    <label style="display:block; margin-bottom:8px;">Interest</label>
+                    <select>
+                        <option>General Inquiry</option>
+                        <option>Admissions Question</option>
+                        <option>Corporate Training</option>
+                        <option>Partnership</option>
+                    </select>
+
+                    <label style="display:block; margin-bottom:8px;">Message</label>
+                    <textarea rows="5" placeholder="How can we help you?"></textarea>
+
+                    <button type="submit" class="primary" style="width:100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Sunshine AI Academy • Fictional demo
+    </footer>
+
+</body>
+
+</html>

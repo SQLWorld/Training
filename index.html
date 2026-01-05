@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunshine AI Academy</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="about.html">About</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Sunshine AI Academy</h1>
+    <p>Modern AI education, powered by intelligent assistants</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card">
+        <h3>AI Fundamentals 1</h3>
+        <p><span>Duration:</span> 4 Weeks</p>
+        <p><span>Instructor:</span> Dr. Noah H.</p>
+        <p><span>Schedule:</span> Monday 6–8 PM</p>
+      </div>
+      <div class="card">
+        <h3>AI Fundamentals 2</h3>
+        <p><span>Instructor:</span> Prof. Nathan H.</p>
+        <p><span>Schedule:</span> Wednesday 6–8 PM</p>
+      </div>
+      <div class="card">
+        <h3>AI Integration in Business</h3>
+        <p><span>Instructor:</span> Prof. Mesi</p>
+        <p><span>Schedule:</span> Tuesday 6–8 PM</p>
+      </div>
+      <div class="card">
+        <h3>AI Integration for Developers</h3>
+        <p><span>Instructor:</span> Mr. Henok</p>
+        <p><span>Schedule:</span> Thursday 6–8 PM</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Sunshine AI Academy • Fictional demo
+  </footer>
+
+  <!-- CHAT -->
+  <div id="chat-bubble">✨</div>
+
+  <div id="chat-panel">
+    <div id="chat-header">
+      Sunshine AI
+      <button id="chat-close">✕</button>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div id="chat-input-area">
+      <input id="chat-input" placeholder="Ask anything about Sunshine AI…" />
+      <button id="chat-send">➤</button>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = https://github.com/SQLWorld/Training.git
+      https://flowiseai-y3sl.onrender.com/api/v1/prediction/05862cb7-61d7-43f9-9e49-07818980dc3f";
+
+        const bubble = document.getElementById("chat-bubble");
+    const panel = document.getElementById("chat-panel");
+    const closeBtn = document.getElementById("chat-close");
+    const messages = document.getElementById("chat-messages");
+    const input = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("chat-send");
+
+    bubble.onclick = () => {
+      panel.style.display = "flex";
+      bubble.style.display = "none";
+    };
+
+    closeBtn.onclick = () => {
+      panel.style.display = "none";
+      bubble.style.display = "flex";
+    };
+
+    function addMessage(text, sender) {
+      const wrap = document.createElement("div");
+      wrap.className = `message ${sender}`;
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.innerText = text;
+      wrap.appendChild(bubble);
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const q = input.value.trim();
+      if (!q) return;
+
+      addMessage(q, "user");
+      input.value = "";
+      input.disabled = true;
+      sendBtn.disabled = true;
+
+      const typing = document.createElement("div");
+      typing.className = "message bot";
+      typing.innerHTML = `<div class="bubble typing"><span></span><span></span><span></span></div>`;
+      messages.appendChild(typing);
+      messages.scrollTop = messages.scrollHeight;
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: q })
+        });
+        const data = await res.json();
+        typing.remove();
+        addMessage(data.text || "I couldn’t find that.", "bot");
+      } catch {
+        typing.remove();
+        addMessage("⚠️ Connection error.", "bot");
+      } finally {
+        input.disabled = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    sendBtn.onclick = sendMessage;
+    input.addEventListener("keypress", e => e.key === "Enter" && sendMessage());
+  </script>
+
+</body>
+
+</html>
