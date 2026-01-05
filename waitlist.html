@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waitlist - Sunshine AI Academy</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="about.html">About</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="contact.html">Contact</a>
+        <a href="waitlist.html" class="active">Waitlist</a>
+    </nav>
+
+    <header>
+        <h1>Join the Waitlist</h1>
+        <p>Secure your spot in our upcoming AI courses.</p>
+    </header>
+
+    <main>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <div class="card">
+                <form>
+                    <label for="name"
+                        style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--accent);">Full
+                        Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                    <label for="email"
+                        style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--accent);">Email
+                        Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                    <label for="course"
+                        style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--accent);">Interested
+                        Course</label>
+                    <select id="course" name="course" required>
+                        <option value="" disabled selected>Select a course...</option>
+                        <option value="fundamentals1">AI Fundamentals 1</option>
+                        <option value="fundamentals2">AI Fundamentals 2</option>
+                        <option value="business">AI Integration in Business</option>
+                        <option value="developers">AI Integration for Developers</option>
+                    </select>
+
+                    <button type="submit" class="primary" style="width: 100%; margin-top: 10px;">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Sunshine AI Academy • Fictional demo
+    </footer>
+
+    <!-- CHAT -->
+    <div id="chat-bubble">✨</div>
+
+    <div id="chat-panel">
+        <div id="chat-header">
+            Sunshine AI
+            <button id="chat-close">✕</button>
+        </div>
+
+        <iframe
+            src="https://copilotstudio.microsoft.com/environments/698d0291-709e-ed2c-9e64-7bc5a2fb0b01/bots/Default_registrationSystem/webchat?__version__=2"
+            frameborder="0" style="width: 100%; height: 100%; flex: 1;"></iframe>
+    </div>
+
+    <script>
+        const bubble = document.getElementById("chat-bubble");
+        const panel = document.getElementById("chat-panel");
+        const closeBtn = document.getElementById("chat-close");
+
+        bubble.onclick = () => {
+            panel.style.display = "flex";
+            bubble.style.display = "none";
+        };
+
+        closeBtn.onclick = () => {
+            panel.style.display = "none";
+            bubble.style.display = "flex";
+        };
+    </script>
+
+</body>
+
+</html>
